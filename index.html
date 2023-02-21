@@ -17,16 +17,16 @@
             <div class="container">
                 <div class="row mb-3">
                     <div class="col">
-                        <input type="email" class="form-control"  placeholder="Indica qui la task che vuoi aggiungere">
+                        <input v-model="nuovaTask.text" type="text" class="form-control"  placeholder="Indica qui la task che vuoi aggiungere">
                     </div>
                     <div class="col-auto">
-                      <button type="submit" class="btn btn-primary mb-3">Aggiungi task</button>
+                      <button @click="addTask" type="submit" class="btn btn-primary mb-3">Aggiungi task</button>
                     </div>
                 </div>
                 <ul class="list-group">
                     <li v-for="(elements,index) in tasks" :class="(elements.done === true)? 'bg-success' : 'bg-danger'" class="list-group-item d-flex justify-content-between align-items-center border rounded m-2">
-                        <span class="tetx-white fs-2">{{elements.text}}</span>
-                        <i class="fa-solid fa-trash-can fs-2"></i>
+                        <span class="tetx-white fs-2" :class="(elements.done === true)? 'text-decoration-line-through' : 'text-decoration-none'">{{elements.text}}</span>
+                        <i @click="removeTask(index)" class="fa-solid fa-trash-can fs-2 text-decoration-none"></i>
                     </li>
                   </ul>
             </div>
