@@ -45,12 +45,12 @@ createApp({
     }
   },
   methods: {
-    addTask () {
-      console.log('add tasks:', this.nuovaTask) 
-      const newTask = this.nuovaTask
-      this.tasks.push(newTask)
-      console.log(this.tasks)
-    },
+      addTask() {
+          console.log('add tasks:', this.nuovaTask)
+          const newTask = this.nuovaTask
+          this.tasks.push(newTask)
+          console.log(this.tasks)
+      },
       removeTask(startIndex) {
           console.log(
               'elimino il task con indice:',
@@ -58,6 +58,14 @@ createApp({
               this.tasks[startIndex]
           )
           this.tasks.splice(startIndex, 1)
+      },
+      changeColor (startIndex){
+        console.log('click', this.tasks[startIndex])
+         if(this.tasks[startIndex].done === true){
+            this.tasks[startIndex].done = false
+        } else {
+            this.tasks[startIndex].done = true
+        }
       }
-}
+  }
 }).mount('#app')
