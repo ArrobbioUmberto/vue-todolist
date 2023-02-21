@@ -24,8 +24,9 @@
                     </div>
                 </div>
                 <ul class="list-group">
-                    <li v-for="" class="list-group-item d-flex justify-content-between align-items-center">
-                     <i class="fa-solid fa-trash-can"></i>
+                    <li v-for="(elements,index) in tasks" :class="(elements.done === true)? 'bg-success' : 'bg-danger'" class="list-group-item d-flex justify-content-between align-items-center border rounded m-2">
+                        <span class="tetx-white fs-2">{{elements.text}}</span>
+                        <i class="fa-solid fa-trash-can fs-2"></i>
                     </li>
                   </ul>
             </div>
