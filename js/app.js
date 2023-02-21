@@ -36,7 +36,28 @@ createApp({
                 done: false,
             },
 
-        ]
-           }
-  }
+        ],
+        nuovaTask:{
+            text: '',
+            done: false,
+        },
+        
+    }
+  },
+  methods: {
+    addTask () {
+      console.log('add tasks:', this.nuovaTask) 
+      const newTask = this.nuovaTask
+      this.tasks.push(newTask)
+      console.log(this.tasks)
+    },
+      removeTask(startIndex) {
+          console.log(
+              'elimino il task con indice:',
+              startIndex,
+              this.tasks[startIndex]
+          )
+          this.tasks.splice(startIndex, 1)
+      }
+}
 }).mount('#app')
