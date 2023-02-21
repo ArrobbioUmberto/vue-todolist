@@ -17,10 +17,10 @@
             <div class="container">
                 <div class="row mb-3">
                     <div class="col">
-                        <input v-model="nuovaTask.text" type="text" class="form-control"  placeholder="Indica qui la task che vuoi aggiungere">
+                        <input v-model="nuovaTask.text" @keyup.enter="addTask" type="text" class="form-control"  placeholder="Indica qui la task che vuoi aggiungere">
                     </div>
                     <div class="col-auto">
-                      <button @click="addTask" type="submit" class="btn btn-primary mb-3">Aggiungi task</button>
+                      <button @click="addTask"  type="submit" class="btn btn-primary mb-3">Aggiungi task</button>
                     </div>
                 </div>
                 <ul class="list-group">
