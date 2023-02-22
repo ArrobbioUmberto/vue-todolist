@@ -37,18 +37,22 @@ createApp({
             },
 
         ],
-        nuovaTask:{
-            text: '',
-            done: false,
-        },
+        inputValue: ''
         
     }
   },
   methods: {
       addTask() {
-          console.log('add tasks:', this.nuovaTask)
-          const newTask = this.nuovaTask
+        let text = this.inputValue.trim()
+        if (text == ''){
+            return
+        }
+          const newTask = {
+            text: this.inputValue,
+            done: false,
+          }
           this.tasks.push(newTask)
+          this.inputValue = ''
           console.log(this.tasks)
       },
       removeTask(startIndex) {
@@ -60,7 +64,6 @@ createApp({
           this.tasks.splice(startIndex, 1)
       },
       changeColor (startIndex){
-        console.log('click', this.tasks[startIndex])
          if(this.tasks[startIndex].done === true){
             this.tasks[startIndex].done = false
         } else {
